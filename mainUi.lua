@@ -26,9 +26,6 @@ function main:Begin(PROPS)
         return
     end
 
-    warn("This is an alpha release of imgui-rbx, expect way more elements being added in later updates! cya");
-    warn("(also expect some bugs)");
-
     local MenuOptions = PROPS or {
         Name = PROPS.Name or "imgui-rbx | alpha 0.1",
         Width = PROPS.Width or 574,
@@ -41,8 +38,7 @@ function main:Begin(PROPS)
             gui_element.Parent = coregui                                 
         elseif gethui then
             gui_element.Parent = gethui()  
-        else
-            error("Cannot secure GUI, it's unsafe to continue.");                           
+        else                   
             gui_element.Parent = players.LocalPlayer.PlayerGui           
         end
     end
@@ -216,6 +212,8 @@ function main:Begin(PROPS)
     AWindowSep.Size = UDim2.new(0, 567, 0, 25)
 
     local ElementHandler = {}
+
+    ElementHandler.Instance = ImGui
 
     function ElementHandler:Text(TextDisplay) 
         local Label_Element = Instance.new("TextLabel")
